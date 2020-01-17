@@ -141,6 +141,7 @@ export default {
 .home-book {
   .home-book-header {
     padding: 13px 0 0 20.5px;
+    font-weight: bold;
   }
   .home-book-content {
     padding: 0px 12px;

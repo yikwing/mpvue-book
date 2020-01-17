@@ -14,8 +14,16 @@ export function get(url, params = {}) {
       fly
         .get(url, params)
         .then((response) => {
-          console.log(response)
-          resolve(response)
+          if (response && response.data && response.data.error_code === 0) {
+            console.log(response.data)
+            resolve(response)
+          } else {
+            mpvue.showToast({
+              title: '失败惹',
+              duration: 2000
+            })
+            reject(response)
+          }
         })
         .catch((err) => {
           console.log(err)

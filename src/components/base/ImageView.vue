@@ -46,7 +46,14 @@ export default {
     }
   },
   watch: {
-    src(newValue, oldValue) {}
+    src(newValue, oldValue) {
+      if (newValue && newValue.length > 0 && newValue !== oldValue) {
+        this.$nextTick(() => {
+          this.isLoading = true
+          this.error = false
+        })
+      }
+    }
   },
   data() {
     return {
